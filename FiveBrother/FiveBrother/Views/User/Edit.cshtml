@@ -1,0 +1,88 @@
+﻿@model FiveBrother.Models.CUser
+
+@{
+    ViewData["Title"] = "Edit";
+}
+@{await Html.RenderPartialAsync("_LayoutAdmin");}
+<div class="container-fluid py-4">
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="AccessFailedCount" />
+        <input type="hidden" asp-for="ConcurrencyStamp" />
+        <input type="hidden" asp-for="Email" />
+        <input type="hidden" asp-for="EmailConfirmed" />
+        <input type="hidden" asp-for="LockoutEnabled" />
+        <input type="hidden" asp-for="LockoutEnd" />
+        <input type="hidden" asp-for="NormalizedEmail" />
+        <input type="hidden" asp-for="NormalizedUserName" />
+        <input type="hidden" asp-for="PasswordHash" />
+        <input type="hidden" asp-for="Phone" />
+        <input type="hidden" asp-for="PhoneNumberConfirmed" />
+        <input type="hidden" asp-for="SecurityStamp" />
+        <input type="hidden" asp-for="TwoFactorEnabled" />
+        <input type="hidden" asp-for="UserName" />
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="text-uppercase text-sm">Create New Categories</p>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label asp-for="FirstName" class="control-label"></label>
+                                    <input asp-for="FirstName" class="form-control" />
+                                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label asp-for="LastName" class="control-label"></label>
+                                    <input asp-for="LastName" class="form-control" />
+                                    <span asp-validation-for="LastName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label asp-for="Birthday" class="control-label"></label>
+                                    <input asp-for="Birthday" class="form-control" />
+                                    <span asp-validation-for="Birthday" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label asp-for="Gender" class="control-label"></label>
+                                    <select asp-for="Gender" asp-items="@Html.GetEnumSelectList<Gender>()"></select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label asp-for="Departments" class="control-label"></label>
+                                    <select asp-for="Departments" asp-items="@ViewBag.DepartmentIds"></select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input type="submit" value="Save" class="btn btn-primary" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <button class="btn btn-danger btn-sm ms-auto col-md-5 " asp-action="Index">Back to List</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}}
+

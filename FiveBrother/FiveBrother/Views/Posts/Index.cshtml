@@ -1,0 +1,71 @@
+﻿@model IEnumerable<FiveBrother.Models.Post>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@{await Html.RenderPartialAsync("_LayoutAdmin");}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-header pb-0">
+                <div class="d-flex align-items-center">
+                    <p class="mb-0">Posts</p>
+                    <a asp-action="Create" class="btn btn-primary btn-sm ms-auto">Create New Posts</a>
+                </div>
+            </div>
+            <div class="card-body px-0 pt-0 pb-2">
+                <div class="table-responsive p-0">
+                    <table class="table align-items-center mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">@Html.DisplayNameFor(model => model.Title)</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">@Html.DisplayNameFor(model => model.Content)</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">@Html.DisplayNameFor(model => model.Imgage)</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">@Html.DisplayNameFor(model => model.CreatedDate)</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">@Html.DisplayNameFor(model => model.Published)</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">@Html.DisplayNameFor(model => model.Cat)</th>
+                                <th>#</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Content)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Imgage)</td>
+                                <td>@Html.DisplayFor(modelItem => item.CreatedDate)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Published)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Cat.CatId)</td>
+                                <td>
+                                    <div class="btn btn-link text-success text-gradient px-3 mb-0" href="javascript:;">
+                                        <div class="fas fa-pencil-alt text-success me-2">
+                                            <a asp-action="Edit" asp-route-id="@item.PotsId">Edit</a>
+                                        </div>
+                                    </div>
+                                    <div class="btn btn-link text-info text-gradient px-3 mb-0" href="javascript:;">
+                                        <div class="fas fa-file text-info me-2">
+                                            <a asp-action="Details" asp-route-id="@item.PotsId">Details</a>
+                                        </div>
+                                    </div>
+                                    <div class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;">
+                                        <div class="far fa-trash-alt text-danger me-2">
+                                            <a asp-action="Delete" asp-route-id="@item.PotsId">Delete</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

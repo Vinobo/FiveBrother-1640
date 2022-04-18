@@ -1,0 +1,47 @@
+﻿@model FiveBrother.Models.Department
+
+@{
+    ViewData["Title"] = "Edit";
+}
+@{await Html.RenderPartialAsync("_LayoutAdmin");}
+<div class="container-fluid py-4">
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="DepId" />
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="text-uppercase text-sm">Edit Categories</p>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label asp-for="Name" class="control-label"></label>
+                                    <input asp-for="Name" class="form-control" />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input type="submit" value="Save" class="btn btn-success btn-sm ms-auto col-md-5" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <button class="btn btn-danger btn-sm ms-auto col-md-5 " asp-action="Index">Back to List</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+}

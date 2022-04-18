@@ -1,0 +1,52 @@
+﻿@model FiveBrother.Models.Category
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+@{await Html.RenderPartialAsync("_LayoutAdmin");}
+
+<div class="container-fluid py-4">
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="text-uppercase text-sm">Create New Categories</p>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label asp-for="CatName" class="control-label"></label>
+                                    <input asp-for="CatName" class="form-control" />
+                                    <span asp-validation-for="CatName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label asp-for="Description" class="control-label"></label>
+                                    <input asp-for="Description" class="form-control" />
+                                    <span asp-validation-for="Description" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input type="submit" value="Create" class="btn btn-success btn-sm ms-auto col-md-5" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <button class="btn btn-danger btn-sm ms-auto col-md-5 " asp-action="Index">Back to List</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

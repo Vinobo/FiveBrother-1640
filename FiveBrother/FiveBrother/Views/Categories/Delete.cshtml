@@ -1,0 +1,47 @@
+﻿@model FiveBrother.Models.Category
+
+@{
+    ViewData["Title"] = "Delete";
+}
+@{await Html.RenderPartialAsync("_LayoutAdmin");}
+<div class="container-fluid py-4">
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="CatId" />
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="text-uppercase text-sm">Details</p>
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div class="form-group">
+                                    <label for="example-text-input" class="form-control-label">Name</label>
+                                    <input class="form-control" type="text" asp-for="CatName">
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="form-group">
+                                    <label for="example-text-input" class="form-control-label">Description</label>
+                                    <input class="form-control" type="text" asp-for="Description">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input class="btn btn-success btn-sm ms-auto col-md-5" type="submit" value="Delete">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <a class="btn btn-danger btn-sm ms-auto col-md-5 " asp-action="Index">Back to List</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

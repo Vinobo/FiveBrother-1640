@@ -1,0 +1,48 @@
+﻿    @model IEnumerable<FiveBrother.Models.CUser>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<a class="btn btn-success" asp-area="Identity" asp-page="/Account/Register">Create</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    <a class="btn btn-primary" asp-action="AssignRole" asp-route-id="@item.Id">Assign Rloe</a> 
+                    <a class="btn btn-info" asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                    <a class="btn btn-warning" asp-action="Details" asp-route-id="@item.Id">Details</a> 
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,96 @@
+@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<main class="main-content  mt-0">
+    <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signup-cover.jpg'); background-position: top;">
+        <span class="mask bg-gradient-dark opacity-6"></span>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5 text-center mx-auto">
+                    <h1 class="text-white mb-2 mt-5">Register!</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center">
+            <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
+                <div class="card z-index-0">
+                    <div class="card-header pt-4">
+                        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                            <div class="card-body" role="form">
+                                <div asp-validation-summary="All" class="text-danger"></div>
+                                <div class="mb-3">
+                                    <label asp-for="Input.Email" for="example-text-input" class="form-control-label"></label>
+                                    <div class="form-group">
+                                        <input asp-for="Input.Email" class="form-control" />
+                                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label asp-for="Input.Password" for="example-text-input" class="form-control-label"></label>
+                                    <div class="form-group">
+                                        <input asp-for="Input.Password" class="form-control" />
+                                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label asp-for="Input.ConfirmPassword" for="example-text-input" class="form-control-label"></label>
+                                    <div class="form-group">
+                                        <input asp-for="Input.ConfirmPassword" class="form-control" />
+                                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label asp-for="Input.FirstName" for="example-text-input" class="form-control-label"></label>
+                                    <div class="form-group">
+                                        <input asp-for="Input.FirstName" class="form-control" />
+                                        <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label asp-for="Input.LastName" for="example-text-input" class="form-control-label"></label>
+                                    <div class="form-group">
+                                        <input asp-for="Input.LastName" class="form-control" />
+                                        <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label asp-for="Input.Birthday" for="example-text-input" class="form-control-label"></label>
+                                    <div class="form-group">
+                                        <input asp-for="Input.Birthday" class="form-control" />
+                                        <span asp-validation-for="Input.Birthday" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label asp-for="Input.Phone" for="example-text-input" class="form-control-label"></label>
+                                    <div class="form-group">
+                                        <input asp-for="Input.Phone" class="form-control" />
+                                        <span asp-validation-for="Input.Phone" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label asp-for="Input.Gender" for="example-text-input" class="form-control-label"></label>
+                                    <div class="form-group">
+                                        <select class="form-control select2" asp-for="Input.Gender" asp-items="@Html.GetEnumSelectList<Gender>()"></select>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label asp-for="Input.DepartmentId" for="example-text-input" class="form-control-label"></label>
+                                    <div class="form-group">
+                                        <select asp-for="Input.DepartmentId" asp-items="@ViewBag.Departments" class="form-control"></select>
+                                        <span asp-validation-for="Input.DepartmentId" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-success btn-sm ms-auto col-md-5">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
